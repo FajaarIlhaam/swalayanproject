@@ -49,10 +49,6 @@ if ($_SESSION['status'] == "login") {
                         Login terlebih dahulu!
                         </div>";
                         }
-
-                        if ($_GET['pesan'] == "register") {
-                            echo "<script type='text/javascript'>toastr.success('Registrasi Berhasil')</script>";
-                        }
                     }
                     ?>
 
@@ -112,6 +108,10 @@ if ($_SESSION['status'] == "login") {
               };
               toastr.success("Anda berhasil Logout");
               ';
+        }
+
+        if ($_GET['pesan'] == "register") {
+            echo "toastr.success('Registrasi Berhasil')";
         }
         ?>
     </script>

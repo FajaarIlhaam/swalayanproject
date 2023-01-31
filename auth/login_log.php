@@ -12,6 +12,7 @@ $result = mysqli_num_rows($query);
 if($result > 0) {
     $_SESSION['username'] = $username;
     $_SESSION['password'] = $password;
+    $_SESSION['id_user'] = $id_user;
     $_SESSION['status'] = "login";
     header('location:../admin.php');
 }else{ 
