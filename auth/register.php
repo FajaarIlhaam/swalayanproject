@@ -74,7 +74,7 @@
                     <i class="bi bi-phone"></i>
                     </div>
                 </div>
-                <button class="btn btn-white btn-block btn-lg shadow mt-5">Daftar</button>
+                <button type="submit" class="btn btn-white btn-block btn-lg shadow mt-5">Daftar</button>
             </form>
             <div class="text-center mt-5 text-lg fs-4">
                 <p class="text-gray-600">Sudah mempunyai akun?</p>

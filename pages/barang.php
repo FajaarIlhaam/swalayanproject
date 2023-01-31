@@ -274,41 +274,6 @@
 
 <!-- Sweet alert -->
 
-<script>
-    const swalButton = Swal.mixin({
-        customClass: {
-            confirmButton: 'btn btn-primary',
-            cancelButton: 'btn btn-danger'
-        },
-        buttonsStyling: false
-    })
-    swalButton.fire({
-        title: 'Peringatan!',
-        text: "Apakah kamu yakin ingin menghapus data ini?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Ya, Saya yakin',
-        cancelButtonText: 'Tidak',
-        reverseButtons: true
-    }).then((result) => {
-        if (result.isConfirmed) {
-            swalButton.fire(
-                'Berhasil!',
-                'Data Berhasil Dihapus.',
-                'success'
-            )
-        } else if (
-            result.dismiss === Swal.DismissReason.cancel
-        ) {
-            swalButton.fire(
-                'Batal',
-                'Data tidak jadi dihapus',
-                'error'
-            )
-        }
-    })
-</script>
-
 
 <script>
     function previewImage() {

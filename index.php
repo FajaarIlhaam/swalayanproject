@@ -49,6 +49,10 @@ if ($_SESSION['status'] == "login") {
                         Login terlebih dahulu!
                         </div>";
                         }
+
+                        if ($_GET['pesan'] == "register") {
+                            echo "<script type='text/javascript'>toastr.success('Registrasi Berhasil')</script>";
+                        }
                     }
                     ?>
 
@@ -86,6 +90,7 @@ if ($_SESSION['status'] == "login") {
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
     <script type="text/javascript">
+        //toastr logout
         <?php
         if ($_GET['pesan'] == "logout") {
             echo ' toastr.options = {
