@@ -12,7 +12,7 @@ $nohp = $_POST['no_hp'];
 $result = mysqli_query($sqlkoneksi, "INSERT INTO user VALUES('$id_user', '$nama_user', '$jk', '$username', '$password', '$nohp')");
 
 if ($result) {
-    return "../index.php";
+    header("location=../index.php");
 }
 
 ?>

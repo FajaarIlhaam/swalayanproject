@@ -26,7 +26,7 @@ if ($_SESSION['status'] == "login") {
     <link rel="stylesheet" href="assets/css/pages/auth.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
 
 </head>
 
@@ -41,10 +41,6 @@ if ($_SESSION['status'] == "login") {
                     if (isset($_GET['pesan'])) {
                         if ($_GET['pesan'] == "gagal") {
                             echo "<div class='alert alert-warning' role='alert'>Login gagal! username dan password salah!</div>";
-                        }
-
-                        if ($_GET['pesan'] == "logout") {
-                            echo "<script type='text/javascript'>toastr.success('Log Out Berhasil')</script>";
                         }
 
                         if ($_GET['pesan'] == "belum_login") {
@@ -84,17 +80,40 @@ if ($_SESSION['status'] == "login") {
 
 
     <!-- Toastify -->
-    <script src="toastr.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    
+    <script src="toastr.js"></script>
+    <script src="assets/js/pages/component-toasts.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
-    <script>
-        toastr.success('Anda berhasil log out!');
+    <script type="text/javascript">
+        <?php
+        if ($_GET['pesan'] == "logout") {
+            echo ' toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+              };
+              toastr.success("Anda berhasil Logout");
+              ';
+        }
+        ?>
     </script>
 
-     <!-- Gsap -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+
+    <!-- Gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script>
         gsap.from('#auth', {
             duration: 1.5,

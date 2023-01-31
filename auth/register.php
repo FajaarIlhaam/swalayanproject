@@ -27,7 +27,7 @@
             <h1 class="auth-title d-flex justify-content-center">Register</h1>
             <form action="register_log.php" method="POST">
 
-            <?php 
+            <?php
                  include '../koneksi.php';
                  $querykode = mysqli_query($sqlkoneksi, "SELECT max(id_user) as idterbesar FROM user");
                  $data = mysqli_fetch_array($querykode);
