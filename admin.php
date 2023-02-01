@@ -247,7 +247,7 @@ session_start();
 
   <!-- Sweet Alert Delete -->
   <script>
-    function swalButton(link) {
+    const swalButton = (link) => {
       Swal.fire({
         title: "Peringatan",
         text: "Apakah Kamu yakin ingin menghapus data ini?",

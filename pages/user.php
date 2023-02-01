@@ -1,3 +1,16 @@
+
+<?php 
+$toastifyFile =  '<script src="assets/extensions/toastify-js/src/toastify.js"></script>';
+
+  
+?>
+
+
+
+
+
+
+
 <div class="page-heading">
   <div class="page-title">
     <div class="row">

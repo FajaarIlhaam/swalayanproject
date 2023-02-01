@@ -12,7 +12,14 @@ switch($aksi){
     $password = $_POST['password'];
     $no_hp = $_POST['no_hp'];
     $query = mysqli_query($sqlkoneksi, "INSERT INTO user VALUES('$id_user','$nama_user','$jenis_kelamin','$username','$password','$no_hp')");
-    header("location:../admin.php?pages=user");
+    if ($query) {
+      session_start();
+      $_SESSION['simpanUser'] = "sukses";
+      echo '
+      <script>
+      window.location.href = "../index.php?pages=user";
+      </script>'
+    }
     break;
 
   case 'update':

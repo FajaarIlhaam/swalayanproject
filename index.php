@@ -90,13 +90,6 @@ if ($_SESSION['status'] == "login") {
         <?php
         if ($_GET['pesan'] == "logout") {
             echo ' toastr.options = {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": true,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
                 "showDuration": "300",
                 "hideDuration": "1000",
                 "timeOut": "5000",
@@ -105,6 +98,7 @@ if ($_SESSION['status'] == "login") {
                 "hideEasing": "linear",
                 "showMethod": "fadeIn",
                 "hideMethod": "fadeOut"
+                
               };
               toastr.success("Anda berhasil Logout");
               ';
