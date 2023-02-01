@@ -30,12 +30,12 @@
           <table class="table" id="table1">
             <thead>
               <tr>
-                <th>ID User</th>
-                <th>Nama</th>
-                <th>Username</th>
-                <th>Jenis Kelamin</th>
-                <th>No hp</th>
-                <th>Aksi</th>
+                <th class="text-center">ID User</th>
+                <th class="text-center">Nama</th>
+                <th class="text-center">Username</th>
+                <th class="text-center">Jenis Kelamin</th>
+                <th class="text-center">No hp</th>
+                <th class="text-center">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -45,7 +45,7 @@
 
               while ($r = mysqli_fetch_array($query)) {
               ?>
-                <tr>
+                <tr class="text-center">
                   <td><?php echo $r['id_user']; ?></td>
                   <td><?php echo $r['nama_user']; ?></td>
                   <td><?php echo $r['username']; ?></td>
@@ -53,12 +53,11 @@
                   <td><?php echo $r['no_hp']; ?></td>
                   <td class="text-center">
 
-                    <!-- Button trigger for basic modal -->
+                    <!-- Button Modal -->
                     <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#default<?php echo $r['id_user']; ?>">
                       <i class="bi bi-pencil-square"></i>
                     </button>
-
-                    <!--Basic Modal -->
+                    <!--Modal Form Edit -->
                     <div class="modal fade text-left" id="default<?php echo $r['id_user']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-scrollable" role="document">
                         <div class="modal-content">

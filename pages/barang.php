@@ -113,7 +113,7 @@
 <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
 
     <div class="card-body">
-        <table class="table table-striped" id="table1">
+        <table class="table" id="table1">
             <thead>
                 <tr>
                     <th>No</th>
@@ -146,8 +146,7 @@
 
                             <a href='' class='btn btn-outline-primary block' data-bs-toggle="modal" data-bs-target="#edit<?php echo $d['id_barang'] ?>"><span data-feather='edit'></span></a>
                             <a onclick="swalButton('handlers/barang.php?aksi=delete&id_barang=<?php echo $d['id_barang'] ?>')" class='badge bg-danger text-decoration-none'>
-                                <span data-feather='trash-2'></span>
-
+                            <i class="bi bi-trash3"></i>
                             </a>
 
                         </td>

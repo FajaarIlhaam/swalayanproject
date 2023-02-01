@@ -25,12 +25,13 @@ switch($aksi){
     $nama_barang = $_POST['nama_barang'];
     $harga = $_POST['harga'];
     $stok = $_POST['stok'];
-    $filename = $_FILES['gambar']['name'];
-    $newfilename = $rand.'_'.$filename;
-    move_uploaded_file($_FILES['gambar']['tmp_name'], '../gambar/'.$rand.'_'.$filename);
-    $query = mysqli_query($sqlkoneksi,"UPDATE barang SET nama_barang = '$nama_barang', harga = '$harga', stok = '$stok WHERE id_barang = '$id_barang'");
+    // $filename = $_FILES['gambar']['name'];
+    // $newfilename = $rand.'_'.$filename;
+    // move_uploaded_file($_FILES['gambar']['tmp_name'], '../gambar/'.$rand.'_'.$filename);
+    $query = mysqli_query($sqlkoneksi,"UPDATE barang SET nama_barang = '$nama_barang', harga = '$harga', stok = '$stok' WHERE id_barang = '$id_barang'");
     header("location:../admin.php?pages=barang");
     break;
+
   case 'delete':
     $id_barang = $_GET['id_barang'];
     $query = mysqli_query($sqlkoneksi,"DELETE FROM barang WHERE id_barang = '$id_barang'");

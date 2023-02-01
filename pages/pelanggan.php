@@ -123,7 +123,7 @@
     <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
 
         <div class="card-body">
-            <table class="table table-striped" id="table1">
+            <table class="table" id="table1">
                 <thead>
                     <tr class="text-center">
                         <th scope>#</th>

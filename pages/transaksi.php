@@ -132,29 +132,26 @@
                         </form>
                         <div class="row">
                             <div class="col-12 py-3 mt-3" style="border-top:1px dotted black;border-radius:2px;">
-                                <table class="table table-striped" id="table1">
+                                <table class="table" id="table1">
                                     <thead>
                                         <tr class="text-center">
-                                            <th scope="col">#</th>
-                                            <th scope="col">ID Transaksi</th>
-                                            <th scope="col">ID Pelanggan</th>
-                                            <th scope="col">Tanggal</th>
-                                            <th scope="col">Nama Barang</th>
-                                            <th scope="col">Jumlah</th>
-                                            <th scope="col">Total</th>
-                                            <th scope="col">User</th>
+                                            <th>#</th>
+                                            <th>ID Transaksi</th>
+                                            <th>ID Pelanggan</th>
+                                            <th>Tanggal</th>
+                                            <th>Nama Barang</th>
+                                            <th>Jumlah</th>
+                                            <th>Total</th>
+                                            <th>User</th>
 
-                                            <th scope="col" class="text-center">Action</th>
+                                            <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         $sql = "SELECT * FROM `v_transaksi` ORDER BY `v_transaksi`.`id_transaksi` DESC";
                                         $query = mysqli_query($sqlkoneksi, $sql);
-
                                         $no = 0; //variabel no
-
-
                                         while ($d = mysqli_fetch_array($query)) {
                                             $total_rupiah = number_format($d['total'], 2, ',', '.');
                                             $no++
@@ -171,9 +168,9 @@
                                                 <td>Rp.<?php echo $total_rupiah ?></td>
                                                 <td><?php echo $d['nama_user'] ?></td>
                                                 <td class="text-center">
-                                                    <button class='btn btn-danger text-decoration-none' onclick="swalDelete('handlers/barang.php?aksi=delete&id_transaksi=<?php echo $d['id_transaksi'] ?>')">
+                                                    <a onclick="swalButton('handlers/transaksi.php?aksi=delete&id_transaksi=<?php echo $d['id_transaksi'] ?>')" class='badge bg-danger text-decoration-none'>
                                                         <span data-feather='trash-2'></span>
-                                                    </button>
+                                                    </a>
                                                 </td>
 
                                             </tr>
