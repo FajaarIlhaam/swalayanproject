@@ -91,9 +91,9 @@
                                             </div>
                                             <div class="keterangan d-none" id="keterangan">
                                                 <span class=" ket-label">Harga : </span>
-                                                <span id="harga" class="badge badge-danger"></span>
+                                                <span id="harga" class=" "></span>
                                                 <span class=" ket-label">Stok : </span>
-                                                <span id="stok" class="badge badge-warning"></span>
+                                                <span id="stok" class=" "></span>
                                             </div>
                                         </div>
                                     </div>
@@ -216,7 +216,7 @@
 
     function changeValueBarang(x) {
         document.getElementById('keterangan').classList.remove('d-none');
-        document.getElementById('harga').innerHTML = formatRupiah(dtBarang[x].harga, "Rp.");
+        document.getElementById('harga').innerHTML = dtBarang[x].harga, "Rp.";
         document.getElementById('stok').innerHTML = dtBarang[x].stok;
     }
 </script>
