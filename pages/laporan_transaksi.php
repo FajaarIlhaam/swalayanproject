@@ -1,47 +1,53 @@
 <?php
+require_once('tcpdf/tcpdf.php');
 
-include('fpdf.php');
+// Buat objek PDF
+$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
-$pdf = new FPDF();
-
-// membuat halaman baru
+// Buat halaman baru
 $pdf->AddPage();
 
-// setting jenis font
-$pdf->SetFont('Arial','B',16);
+// Tulis judul tabel
+$html = '<h1>Laporan Transaksi</h1>';
+$html .= '<table border="1">';
+$html .= '<tr>';
+$html .= '<th>No</th>';
+$html .= '<th>ID Transaksi</th>';
+$html .= '<th>Nama Pelanggan</th>';
+$html .= '<th>Tanggal</th>';
+$html .= '<th>Nama Barang</th>';
+$html .= '<th>Jumlah</th>';
+$html .= '<th>Total</th>';
+$html .= '<th>Nama User</th>';
+$html .= '</tr>';
 
-// mencetak string
-$pdf->Cell(190,7,'Laporan Transaksi',0,1,'C');
-$pdf->SetFont('Arial','B',10);
-$pdf->Cell(190,7,'Periode '.date("d-m-Y").' s/d '.date("d-m-Y"),0,1,'C');
-
-//header tabel
-$pdf->Cell(10,7,'NO',1,0);
-$pdf->Cell(35,7,'ID Transaksi',1,0);
-$pdf->Cell(35,7,'Nama Pelanggan',1,0);
-$pdf->Cell(35,7,'Tanggal',1,0);
-$pdf->Cell(35,7,'Nama Barang',1,0);
-$pdf->Cell(20,7,'Jumlah',1,0);
-$pdf->Cell(30,7,'Total',1,0);
-$pdf->Cell(30,7,'Nama User',1,1);
-
-//Data
-$no = 0;
-$sql = "SELECT * FROM `v_transaksi` ORDER BY `v_transaksi`.`id_transaksi` DESC";
+// Ambil data transaksi dari database
+$sql = "SELECT * FROM v_transaksi ORDER BY id_transaksi DESC";
 $query = mysqli_query($sqlkoneksi, $sql);
+$no = 0;
 while ($d = mysqli_fetch_array($query)) {
     $total_rupiah = number_format($d['total'], 2, ',', '.');
     $no++;
-    $pdf->Cell(10,7,$no,1,0);
-    $pdf->Cell(35,7,$d['id_transaksi'],1,0);
-    $pdf->Cell(35,7,$d['nama_pelanggan'],1,0);
-    $pdf->Cell(35,7,$d['tanggal'],1,0);
-    $pdf->Cell(35,7,$d['nama_barang'],1,0);
-    $pdf->Cell(20,7,$d['jumlah'],1,0);
-    $pdf->Cell(30,7,'Rp.'.$total_rupiah,1,0);
-    $pdf->Cell(30,7,$d['nama_user'],1,1);
+
+    // Tambahkan data transaksi ke dalam tabel
+    $html .= '<tr>';
+    $html .= '<td>'.$no.'</td>';
+    $html .= '<td>'.$d['id_transaksi'].'</td>';
+    $html .= '<td>'.$d['nama_pelanggan'].'</td>';
+    $html .= '<td>'.$d['tanggal'].'</td>';
+    $html .= '<td>'.$d['nama_barang'].'</td>';
+    $html .= '<td>'.$d['jumlah'].'</td>';
+    $html .= '<td>Rp.'.$total_rupiah.'</td>';
+    $html .= '<td>'.$d['nama_user'].'</td>';
+    $html .= '</tr>';
 }
 
-$pdf->Output();
+// Tutup tabel
+$html .= '</table>';
 
+// Tulis data tabel ke PDF
+$pdf->writeHTML($html, true, false, true, false, '');
+
+// Output PDF
+$pdf->Output('laporan_transaksi.pdf', 'D');
 ?>
