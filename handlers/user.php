@@ -18,7 +18,7 @@ switch($aksi){
       echo '
       <script>
       window.location.href = "../index.php?pages=user";
-      </script>'
+      </script>';
     }
     break;
 
