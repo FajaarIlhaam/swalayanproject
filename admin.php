@@ -212,6 +212,16 @@ session_start();
       }
       ?>
 
+<?php
+      if (isset($_GET['pages'])) {
+        $pages = $_GET['pages'];
+        switch ($pages) {
+          case 'laporan_transaksi';
+            include 'pages/laporan_transaksi.php';
+        }
+      }
+      ?>
+
     </div>
     <div id="main">
 

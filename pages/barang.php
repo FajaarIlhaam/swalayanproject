@@ -146,7 +146,7 @@
 
                             <a href='' class='btn btn-outline-primary block' data-bs-toggle="modal" data-bs-target="#edit<?php echo $d['id_barang'] ?>"><span data-feather='edit'></span></a>
                             <a onclick="swalButton('handlers/barang.php?aksi=delete&id_barang=<?php echo $d['id_barang'] ?>')" class='badge bg-danger text-decoration-none'>
-                            <i class="bi bi-trash3"></i>
+                            <span data-feather='trash-2'></span>
                             </a>
 
                         </td>

@@ -168,6 +168,9 @@
                                                 <td>Rp.<?php echo $total_rupiah ?></td>
                                                 <td><?php echo $d['nama_user'] ?></td>
                                                 <td class="text-center">
+                                                    <a href="admin.php?pages=laporan_transaksi" class="badge bg-primary text-decoration-none">
+                                                    <span data-feather='printer'></span> 
+                                                    </a>
                                                     <a onclick="swalButton('handlers/transaksi.php?aksi=delete&id_transaksi=<?php echo $d['id_transaksi'] ?>')" class='badge bg-danger text-decoration-none'>
                                                         <span data-feather='trash-2'></span>
                                                     </a>
