@@ -152,6 +152,21 @@ session_start();
               </a>
             </li>
 
+            <li <?php
+                if (isset($_GET['pages'])) {
+                  $pages = $_GET['pages'];
+                  switch ($pages) {
+                    case 'laporan_transaksi';
+                      echo "class='sidebar-item active'";
+                  }
+                }
+                ?> class="sidebar-item">
+              <a href="admin.php?pages=laporantransaksi" class="sidebar-link">
+              <i class="bi bi-graph-up"></i>
+                <span>Laporan</span>
+              </a>
+            </li>
+
           </ul>
         </div>
       </div>
@@ -212,15 +227,16 @@ session_start();
       }
       ?>
 
-<?php
+      <?php
       if (isset($_GET['pages'])) {
         $pages = $_GET['pages'];
         switch ($pages) {
-          case 'laporan_transaksi';
-            include 'pages/laporan_transaksi.php';
+          case 'laporantransaksi';
+            include 'pages/laporantransaksi.php';
         }
       }
       ?>
+
 
     </div>
     <div id="main">
@@ -272,9 +288,9 @@ session_start();
         if (response.value) {
           window.location.href = link
           Swal.fire(
-          'Berhasil!', 
-          'Data berhasil Dihapus', 
-          'success'
+            'Berhasil!',
+            'Data berhasil Dihapus',
+            'success'
           )
         } else if (
           response.dismiss === Swal.DismissReason.cancel
