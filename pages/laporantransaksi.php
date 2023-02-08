@@ -7,8 +7,8 @@
                         <h4 class="fs-2 card-title">Laporan Transaksi</h4>
                     </div>
                     <div class="col-md-4 d-flex justify-content-end">
-                        <input type="datetime-local" step="1" value="<?php echo $Now->format('Y-m-d 00:00:00'); ?>" name="tanggal_awal" class="form-control">
-                        <input type="datetime-local" step="1" value="<?php echo $Now->format('Y-m-d 23:59:59'); ?>" name="tanggal_akhir" class="form-control mx-2">
+                        <input type="date" step="1" name="tanggal_awal" class="form-control">
+                        <input type="date" step="1" name="tanggal_akhir" class="form-control mx-2">
                         <button type="submit" name="search" class="btn btn-primary"><i class="bi bi-search"></i></button>
                     </div>
                 </div>
@@ -37,7 +37,6 @@
                     <?php
                     include "koneksi.php";
                     if (isset($_POST['search'])) {
-
                         $tanggal_awal = $_POST['tanggal_awal'];
                         $tanggal_akhir = $_POST['tanggal_akhir'];
                         $query = mysqli_query($sqlkoneksi, "SELECT * FROM v_transaksi WHERE tanggal BETWEEN '$tanggal_awal' AND '$tanggal_akhir' ");
@@ -45,11 +44,11 @@
 
                         $sql = "SELECT * FROM `v_transaksi` ORDER BY `v_transaksi`.`id_transaksi` DESC";
                         $query = mysqli_query($sqlkoneksi, $sql);
-                        $no = 0;
                     }
 
                     while ($d = mysqli_fetch_array($query)) {
                         $total_rupiah = number_format($d['total'], 2, ',', '.');
+                        $no = 0;
                         $no++
                     ?>
 

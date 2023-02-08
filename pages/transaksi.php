@@ -159,7 +159,6 @@
 
                                             <tr>
                                                 <td scope='row' class="text-center"><?php echo $no ?></td>
-
                                                 <td><?php echo $d['id_transaksi'] ?></td>
                                                 <td><?php echo $d['nama_pelanggan'] ?></td>
                                                 <td><?php echo $d['tanggal'] ?></td>
@@ -175,7 +174,6 @@
                                                         <span data-feather='trash-2'></span>
                                                     </a>
                                                 </td>
-
                                             </tr>
                                         <?php } ?>
                                 </table>
