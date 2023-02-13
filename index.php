@@ -62,6 +62,20 @@ if ($_SESSION['status'] == "login") {
           </div>
           <input type="submit" value="Login" class="btn solid" />
           <p class="social-text">Lupa Password?</p>
+          <div class="social-media">
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
         </form>
 
 
@@ -77,7 +91,7 @@ if ($_SESSION['status'] == "login") {
           $huruf = "SMK";
           $iduser = $huruf . sprintf("%03s", $urutan);
           ?>
-          <h2 class="title">Sign up</h2>
+          <h2 class="title">Daftar</h2>
           <input type="hidden" name="id_user" class="form-control form-control-xl" value="<?php echo $iduser ?>">
           <div class="input-field">
             <i class="fas  fa-user-circle"></i>
@@ -103,8 +117,8 @@ if ($_SESSION['status'] == "login") {
             <i class="fas fa-phone"></i>
             <input type="tel" name="no_hp" pattern="^\d{12}$" placeholder="No telpon" required>
           </div>
-          <input type="submit" class="btn" value="Sign up" />
-          <p class="social-text">Or Sign up with social platforms</p>
+          <input type="submit" class="btn" value="Daftar" />
+          <p class="social-text">Sudah punya akun?</p>
           <div class="social-media">
             <a href="#" class="social-icon">
               <i class="fab fa-facebook-f"></i>
@@ -126,26 +140,24 @@ if ($_SESSION['status'] == "login") {
     <div class="panels-container">
       <div class="panel left-panel">
         <div class="content">
-          <h3>Selamat Datang di Zard Market</h3>
+          <h3>Selamat Datang</h3>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-            ex ratione. Aliquid!
+            Selamat datang di Zard Market. Silahkan untuk login terlebih dahulu jika tidak punya akun bisa daftar di bawah ini
           </p>
           <button class="btn transparent" id="sign-up-btn">
-            Sign up
+            Daftar
           </button>
         </div>
         <img src="assets/vector/undraw_engineering_team_a7n2.svg" class="image" alt="" />
       </div>
       <div class="panel right-panel">
         <div class="content">
-          <h3>One of us ?</h3>
+          <h3>Jadilah bagian dari kami</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            laboriosam ad deleniti.
+            Jelajahi Website Zard Market ini dengan Impian yang ingin anda beli. Silahkan Untuk membuat akun terlebih dahulu
           </p>
           <button class="btn transparent" id="sign-in-btn">
-            Sign in
+            Masuk
           </button>
         </div>
         <img src="assets/vector/undraw_web_shopping_re_owap.svg" class="image" alt="" />
