@@ -169,7 +169,9 @@ if ($_SESSION['status'] == "login") {
         position:relative; bottom: 100px;" loop autoplay></lottie-player>
       </div>
     </div>
+    
   </div>
+ 
 
 
 
@@ -204,9 +206,10 @@ if ($_SESSION['status'] == "login") {
       customStyle.innerHTML = '.toast-style { background-color: #4481eb  !important; }';
       document.head.appendChild(customStyle);
       toastr.success("Anda berhasil Logout");
+
+      sessionStorage.removeItem("pesan")
     }
     <?php
-
     if ($_GET['pesan'] == "register") {
       echo "toastr.success('Registrasi Berhasil')";
     }
