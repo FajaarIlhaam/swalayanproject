@@ -35,30 +35,31 @@ if ($_SESSION['status'] == "login") {
 <body>
   <div class="container">
     <div class="forms-container">
-      <div class="signin-signup">
-        <?php
-        if (isset($_GET['pesan'])) {
-          if ($_GET['pesan'] == "gagal") {
-            echo "<div class='alert alert-warning' role='alert'>Login gagal! username dan password salah!</div>";
-          }
 
-          if ($_GET['pesan'] == "belum_login") {
-            echo "  
+      <div class="signin-signup">
+        <form action="auth/login_log.php" method="POST" class="sign-in-form">
+          <?php
+          if (isset($_GET['pesan'])) {
+            if ($_GET['pesan'] == "gagal") {
+              echo "<div class='alert alert-warning' role='alert'>Login gagal! username dan password salah!</div>";
+            }
+
+            if ($_GET['pesan'] == "belum_login") {
+              echo "  
                         <div class='alert alert-warning' role='alert'>
                         Login terlebih dahulu!
                         </div>";
+            }
           }
-        }
-        ?>
-        <form action="auth/login_log.php" method="POST" class="sign-in-form">
+          ?>
           <h2 class="title">Login</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" name="username" placeholder="Username" />
+            <input type="text" name="username" placeholder="Username" autocomplete="off" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" name="password" placeholder="Password" />
+            <input type="password" name="password" placeholder="Password" autocomplete="off" />
           </div>
           <input type="submit" value="Login" class="btn solid" />
           <p class="social-text">Lupa Password?</p>
@@ -148,7 +149,10 @@ if ($_SESSION['status'] == "login") {
             Daftar
           </button>
         </div>
-        <img src="assets/vector/undraw_engineering_team_a7n2.svg" class="image" alt="" />
+        <div class="illustrator">
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_1z0fledt.json" class="image img-illustrator" background="transparent" speed="1" style="width: 120%; position:relative; bottom:120px; right: 110px; z-index: -1;" loop autoplay></lottie-player>
+        </div>
       </div>
       <div class="panel right-panel">
         <div class="content">
@@ -160,7 +164,9 @@ if ($_SESSION['status'] == "login") {
             Masuk
           </button>
         </div>
-        <img src="assets/vector/undraw_web_shopping_re_owap.svg" class="image" alt="" />
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_3mcu1lCXFW.json" class="image" background="transparent" speed="1" style="width: 100%; z-index:-1;
+        position:relative; bottom: 100px;" loop autoplay></lottie-player>
       </div>
     </div>
   </div>
@@ -170,39 +176,51 @@ if ($_SESSION['status'] == "login") {
 
   <!-- Toastify -->
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-  <script src="toastr.js"></script>
   <script src="assets/js/pages/component-toasts.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
   <script src="assets/loginjs/main.js"></script>
   <script type="text/javascript">
     //toastr logout
-    <?php
-    if ($_GET['pesan'] == "logout") {
-      echo ' toastr.options = {
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-                
-              };
-              toastr.success("Anda berhasil Logout");
-              ';
+
+    //get main url when session destroy
+    if (sessionStorage.getItem("pesan") == "logout") {
+      toastr.options = {
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut",
+        "toastclass": "toast-style"
+
+      };
+
+      //style color toastr js
+      toastr.options.toastClass = 'toast-style';
+      const customStyle = document.createElement('style');
+      customStyle.innerHTML = '.toast-style { background-color: #4481eb  !important; }';
+      document.head.appendChild(customStyle);
+      toastr.success("Anda berhasil Logout");
     }
+    <?php
 
     if ($_GET['pesan'] == "register") {
       echo "toastr.success('Registrasi Berhasil')";
     }
     ?>
   </script>
-
-
   <!-- Gsap -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script>
+    gsap.from(".container", {
+      duration: 0.9,
+      ease: "sine.out",
+      x: -350
+    });
+  </script>
 </body>
 
 </html>
