@@ -3,7 +3,8 @@
 session_start();
 
 session_destroy();
-header("location:index.php?pesan=logout");
-
-
 ?>
+<script>
+    sessionStorage.setItem('pesan', 'logout')
+    window.location.href = "http://localhost:8080/swalayanproject"
+</script>
