@@ -15,7 +15,7 @@ if($result > 0) {
     $_SESSION['password'] = $password;
     $_SESSION['id_user'] = $getiduser[0];
     $_SESSION['status'] = "login";
-    header('location:../admin.php');
+    header('location:../admin.php?pages=dashboard');
 }else{ 
     header('location:../index.php?pesan=gagal');
 }
